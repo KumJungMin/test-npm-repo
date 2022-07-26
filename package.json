@@ -1,5 +1,5 @@
 {
-  "name": "@gjm/test-npm-repo",
+  "name": "@kumjungmin/test-npm-repo",
   "version": "0.0.1",
   "main": "dist/library.js",
   "module": "dist/library.mjs",
