@@ -1,0 +1,22 @@
+{
+  "name": "@gjm/test-npm-repo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KumJungMin/test-npm-repo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KumJungMin/test-npm-repo/issues"
+  },
+  "homepage": "https://github.com/KumJungMin/test-npm-repo#readme",
+  "publishConfig": {
+  "registry": "https://npm.pkg.github.com/"
+}
+}
