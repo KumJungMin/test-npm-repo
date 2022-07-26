@@ -1,0 +1,218 @@
+$red100: #ffffff;
+$red98: #fef6f6;
+$red95: #fde8e7;
+$red90: #fbd1d0;
+$red80: #f7a2a1;
+$red70: #f47471;
+$red60: #f04542;
+$red50: #ed2926; // up
+$red40: #d01411; // primary
+$red30: #970f0c;
+$red20: #680a08;
+$red10: #500807;
+$red5: #340504;
+$red0: #000000;
+
+$blue100: #ffffff;
+$blue98: #f6f9fe;
+$blue95: #e7f0fd;
+$blue90: #d0e2fb;
+$blue80: #a1c5f7;
+$blue70: #71a8f4;
+$blue60: #428bf0;
+$blue50: #2679ed; // down
+$blue40: #1160d0;
+$blue30: #0d489c;
+$blue20: #083068;
+$blue10: #072550;
+$blue5: #041834;
+$blue0: #000000;
+
+$green100: #ffffff;
+$green98: #f6fef9;
+$green95: #e7fdf1;
+$green90: #d0fbe3;
+$green80: #a1f7c8;
+$green70: #71f4ac;
+$green60: #42f090;
+$green50: #26ed80;
+$green40: #11d067;
+$green30: #0d9c4d;
+$green20: #086833;
+$green10: #075028;
+$green5: #04341a;
+$green0: #000000;
+
+$yellow100: #ffffff;
+$yellow98: #fefcf6;
+$yellow95: #fdf8e7;
+$yellow90: #fbf2d0;
+$yellow80: #f7e5a1;
+$yellow70: #f4d771;
+$yellow60: #f0ca42;
+$yellow50: #f3c620;
+$yellow40: #dcad04;
+$yellow30: #9c7d0d;
+$yellow20: #685308;
+$yellow10: #504007;
+$yellow5: #342a04;
+$yellow0: #000000;
+
+$neutral100: #ffffff;
+$neutral98: #fafafa;
+$neutral95: #f2f2f2;
+$neutral90: #e5e5e5;
+$neutral80: #cccccc;
+$neutral70: #b2b2b2;
+$neutral60: #999999;
+$neutral50: #7d7d7d;
+$neutral40: #666666;
+$neutral30: #525252;
+$neutral20: #383838;
+$neutral10: #292929;
+$neutral5: #1c1c1c;
+$neutral0: #000000;
+
+$light-shadow1: rgba(0, 0, 0, 0.24);
+$light-shadow2: rgba(0, 0, 0, 0.22);
+$light-shadow3: rgba(0, 0, 0, 0.2);
+$light-shadow4: rgba(0, 0, 0, 0.18);
+$light-shadow5: rgba(0, 0, 0, 0.16);
+$dark-shadow1: rgba(0, 0, 0, 0.6);
+$dark-shadow2: rgba(0, 0, 0, 0.54);
+$dark-shadow3: rgba(0, 0, 0, 0.48);
+$dark-shadow4: rgba(0, 0, 0, 0.42);
+$dark-shadow5: rgba(0, 0, 0, 0.36);
+
+body {
+  --background: #{$neutral100};
+  --surface: #{$neutral100};
+
+  --primary: #{$red40};
+  --on-primary: #{$red98};
+  --primary-container: #{$red95};
+
+  --up: #{$red50};
+  --on-up: #{$red100};
+  --up-container: #{$red95};
+
+  --down: #{$blue50};
+  --on-down: #{$blue100};
+  --down-container: #{$blue95};
+
+  --neutral: #{$neutral5};
+  --on-neutral: #{$neutral100};
+  --neutral-container: #{$neutral95};
+  --neutral-secondary: #{$neutral30};
+  --neutral-tertiary: #{$neutral60};
+  --outline: #{$neutral90};
+  --outline-secondary: #{$neutral95};
+
+  --red: #{$red40};
+  --red-container: #{$red95};
+
+  --blue: #{$blue40};
+  --blue-container: #{$blue95};
+
+  --green: #{$green40};
+  --green-container: #{$green95};
+
+  --yellow: #{$yellow40};
+  --yellow-container: #{$yellow95};
+
+  --selection: rgba(0, 0, 0, 0.1);
+
+  --box-shadow1: 0 1px 4px #{$light-shadow1};
+  --box-shadow2: 0 2px 8px #{$light-shadow2};
+  --box-shadow3: 0 3px 12px #{$light-shadow3};
+  --box-shadow4: 0 4px 20px #{$light-shadow4};
+  --box-shadow5: 0 5px 32px #{$light-shadow5};
+}
+
+body[data-theme='dark'] {
+  --background: #{$neutral5};
+  --surface: #{$neutral10};
+
+  --primary: #{$red60};
+  --on-primary: #{$red98};
+  --primary-container: #{$red20};
+
+  --up: #{$red60};
+  --on-up: #{$red98};
+  --up-container: #{$red20};
+
+  --down: #{$blue60};
+  --on-down: #{$blue98};
+  --down-container: #{$blue20};
+
+  --neutral: #{$neutral98};
+  --on-neutral: #{$neutral5};
+  --neutral-container: #{$neutral20};
+  --neutral-secondary: #{$neutral80};
+  --neutral-tertiary: #{$neutral50};
+  --outline: #{$neutral20};
+  --outline-secondary: #{$neutral10};
+
+  --red: #{$red60};
+  --red-container: #{$red10};
+
+  --blue: #{$blue60};
+  --blue-container: #{$blue10};
+
+  --green: #{$green60};
+  --green-container: #{$green10};
+
+  --yellow: #{$yellow60};
+  --yellow-container: #{$yellow10};
+
+  --selection: rgba(256, 256, 256, 0.1);
+
+  --box-shadow1: 0 1px 4px #{$dark-shadow1};
+  --box-shadow2: 0 2px 8px #{$dark-shadow2};
+  --box-shadow3: 0 3px 12px #{$dark-shadow3};
+  --box-shadow4: 0 4px 20px #{$dark-shadow4};
+  --box-shadow5: 0 5px 32px #{$dark-shadow5};
+}
+
+#main.non-dark-mode-content {
+  --background: #{$neutral100};
+  --surface: #{$neutral100};
+
+  --primary: #{$red40};
+  --on-primary: #{$red98};
+  --primary-container: #{$red95};
+
+  --up: #{$red50};
+  --on-up: #{$red100};
+  --up-container: #{$red95};
+
+  --down: #{$blue50};
+  --on-down: #{$blue100};
+  --down-container: #{$blue95};
+
+  --neutral: #{$neutral5};
+  --on-neutral: #{$neutral100};
+  --neutral-container: #{$neutral95};
+  --neutral-secondary: #{$neutral30};
+  --neutral-tertiary: #{$neutral60};
+  --outline: #{$neutral90};
+  --outline-secondary: #{$neutral95};
+
+  --red: #{$red40};
+  --red-container: #{$red95};
+
+  --blue: #{$blue40};
+  --blue-container: #{$blue95};
+
+  --green: #{$green40};
+  --green-container: #{$green95};
+
+  --yellow: #{$yellow40};
+  --yellow-container: #{$yellow95};
+
+  --box-shadow1: 0 1px 4px #{$light-shadow1};
+  --box-shadow2: 0 2px 8px #{$light-shadow2};
+  --box-shadow3: 0 3px 12px #{$light-shadow3};
+  --box-shadow4: 0 4px 20px #{$light-shadow4};
+  --box-shadow5: 0 5px 32px #{$light-shadow5};
+}

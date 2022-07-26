@@ -1,0 +1,517 @@
+@import url(https://file.alphaprime.co.kr/AlphaSans/alpha-sans.css);
+// @import './sweet-alert-2.scss';
+@import './color.scss';
+
+/* ------------------------------------ Alphasquare Base Reset & Init CSS ------------------------------------- */
+/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 License: none (public domain) */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+button,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  font: inherit;
+  font-family: AlphaSans, sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  font-size: 62.5%;
+  background-color: var(--background);
+  overflow: hidden;
+
+  * {
+    // touch-action for iOS safari - Enable panning and pinch zoom gestures,
+    // but disable additional non-standard gestures such as double-tap to zoom.
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  &.overflow-hidden {
+    overflow: hidden !important;
+  }
+
+  &[class|='warp']:not([class='warp-stockinformation']) {
+    overflow: hidden;
+  }
+
+  &.warp-stockinformation-overflow-hidden {
+    overflow: hidden;
+  }
+
+  --sat: env(safe-area-inset-top);
+  --sar: env(safe-area-inset-right);
+  --sab: env(safe-area-inset-bottom);
+  --sal: env(safe-area-inset-left);
+}
+
+@supports (padding-top: env(safe-area-inset-top)) {
+
+  // TODO: dark mode로 인해 html에서 body로 변경됨.
+  body {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+
+    // safe-area가 있는 경우, 화면 최상단 StatusBar(safe-area-inset-top)만큼 공간 제공
+    &::before {
+      content: '';
+      width: 100%;
+      height: env(safe-area-inset-top);
+      background-color: var(--background);
+      position: fixed;
+      top: 0;
+      z-index: 9999;
+    }
+  }
+}
+
+body {
+  line-height: 1;
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+tspan {
+  font-family: AlphaSans, sans-serif !important;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* autocomplete autofill 배경색 */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill,
+.input-material:-webkit-autofill,
+.form-control:-webkit-autofill,
+.input-material:-webkit-autofill:hover,
+.form-control:-webkit-autofill:hover,
+.input-material:-webkit-autofill:focus,
+.form-control:-webkit-autofill:focus,
+.input-material:-webkit-autofill:active,
+.form-control:-webkit-autofill:active,
+.input-material:-webkit-autofill:valid,
+.form-control:-webkit-autofill:valid {
+  -webkit-text-fill-color: var(--neutral);
+  background-color: transparent !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+  -webkit-text-fill-color: var(--neutral);
+}
+
+ul,
+ol,
+li,
+a {
+  list-style: none;
+  color: var(--neutral);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  word-break: keep-all;
+  color: var(--neutral);
+}
+
+p,
+label {
+  word-break: keep-all;
+  color: var(--neutral);
+  margin-bottom: 0;
+}
+
+input,
+button,
+input:focus,
+button:focus {
+  outline: 0;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  caret-color: var(--neutral);
+}
+
+input[type='text'],
+input[type='password'],
+input[type='number'],
+textarea {
+  color: var(--neutral) !important;
+  font: unset;
+  -webkit-appearance: none;
+}
+
+input[type='text']:focus,
+input[type='password']:focus,
+input[type='email']:focus,
+input[type='range']:focus,
+textarea:focus {
+  border-color: var(--primary);
+  outline: 0;
+}
+
+input[type='button'],
+input[type='submit'],
+input[type='reset'],
+input[type='file']::-webkit-file-upload-button,
+button {
+  color: var(--neutral);
+  background-color: transparent;
+}
+
+// safari select의 OS style 제거
+select {
+  -webkit-appearance: none;
+}
+
+/* Safari input의 lock, auto / IE input의 clear, reveal 버튼 제거 */
+// input::-webkit-textfield-decoration-container,
+input::-webkit-caps-lock-indicator,
+input::-webkit-contacts-auto-fill-button,
+input::-webkit-credentials-auto-fill-button,
+input::-ms-clear,
+input::-ms-reveal {
+  visibility: hidden !important;
+  display: none !important;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+
+input::-ms-clear,
+input::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration {
+  display: none;
+}
+
+// mobile user-select
+* {
+  user-select: none;
+}
+
+input,
+textarea,
+.ql-editor * {
+  user-select: auto !important;
+}
+
+// svg 내부 요소 pointer-events 제거
+svg:not(.cancel-button) {
+  pointer-events: none;
+}
+
+.highcharts-container svg {
+  pointer-events: unset !important;
+}
+
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.price-color[status='up'] .text-color-apply {
+  color: var(--up) !important;
+}
+
+.price-color[status='down'] .text-color-apply {
+  color: var(--down) !important;
+}
+
+// 상한가, 상승, 변동없음, 하락, 하한가 심볼 관련 css
+.symbol-image {
+  width: 0.8rem !important;
+  height: 1rem !important;
+  display: inline-block;
+
+  &[status='up'] {
+    background: url(../service/img/arrows/up.svg) center center no-repeat;
+  }
+
+  &[status='down'] {
+    background: url(../service/img/arrows/down.svg) center center no-repeat;
+  }
+
+  &[status='zero'] {
+    background: url(../service/img/arrows/middle.svg) center center no-repeat;
+  }
+
+  &[status='upperLimit'] {
+    background: url(../service/img/arrows/upper-limit.svg) center center no-repeat;
+  }
+
+  &[status='lowerLimit'] {
+    background: url(../service/img/arrows/lower-limit.svg) center center no-repeat;
+  }
+}
+
+/* input[type="number"] 의 화살표 항시 노출 */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  opacity: 1;
+  margin-left: 8px;
+}
+
+// pagination 관련 css
+.pagination {
+  display: inline-block;
+  border-radius: 4px;
+  line-height: 24px;
+
+  li {
+    display: inline;
+    margin: 2px 6px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.for-empty {
+  // height는 각각의 사용처에서 지정
+  position: relative;
+
+  .for-empty-wrap {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+
+    .for-empty-text {
+      width: 100%;
+      text-align: center;
+      line-height: 2rem;
+      font-size: 1.4rem;
+      color: var(--neutral-tertiary);
+
+      &.with-button {
+        color: var(--neutral-secondary);
+      }
+    }
+
+    .for-empty-button {
+      width: auto;
+      padding: 0 3.2rem;
+      height: 3.2rem;
+      line-height: 3.2rem;
+      margin-top: 0.8rem;
+      border-radius: 4px;
+      background-color: var(--primary);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--on-primary);
+      position: relative;
+      left: 50%;
+      transform: translate(-50%, 0);
+      cursor: pointer;
+    }
+  }
+
+  // 기준 부모 요소를 더 상위 요소로 지정하고자 할 때 static 추가
+  &.static {
+    position: static;
+  }
+}
+
+.for-index {
+  // height는 각각의 사용처에서 지정
+  position: relative;
+
+  .message {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-size: 1.6rem;
+    text-align: center;
+    color: var(--neutral-secondary);
+  }
+}
+
+// 상장 폐지 종목의 라벨
+.stock-delist-label {
+  width: 6.4rem;
+  height: 2rem;
+  display: block;
+  background: rgba(224, 121, 0, 0.2);
+  line-height: 2rem;
+  border-radius: 1rem;
+  font-weight: 500;
+  color: #e07900;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.clickable-layer {
+  position: relative;
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--neutral);
+    border-radius: inherit;
+  }
+
+  &:hover::after {
+    opacity: 0.08;
+  }
+
+  &:active::after {
+    opacity: 0.16 !important;
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.4;
+
+    &::after {
+      opacity: 0 !important;
+    }
+  }
+}
+
+body[data-touchable='true'] .clickable-layer {
+  &:hover::after {
+    opacity: 0;
+  }
+
+  &:active::after {
+    opacity: 0.08 !important;
+  }
+}
